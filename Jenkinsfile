@@ -3,7 +3,7 @@ pipeline{
 	agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub-rajesh')
+		DOCKERHUB_CREDENTIALS=credentials('rajesh-dockerhub')
 	}
 
 	stages {
@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'sudo docker build -t rajeshshirke/docker:latest .'
+				sh 'sudo docker build -t rajeshshirke/img2:latest .'
 			}
 		}
 
@@ -25,7 +25,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'sudo docker push rajeshshirke/docker:latest'
+				sh 'sudo docker push rajeshshirke/img2:latest'
 			}
 		}
 	}
