@@ -11,21 +11,21 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build /home/ubuntu/jenkins/workspace/job2/. -t img2'
+				sh 'sudo docker build /home/ubuntu/jenkins/workspace/job2/. -t img2'
 			}
 		}
 
 		stage('Login') {
 
 			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				sh 'sudo echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
 
 		stage('Push') {
 
 			steps {
-				sh 'docker push rajeshshirke/ig2:latest'
+				sh 'sudo docker push rajeshshirke/ig2:latest'
 			}
 		}
 	}
