@@ -8,6 +8,13 @@ pipeline{
 
 	stages {
 
+                stage('gitclone') {
+
+                        steps {
+                                sh 'git clone https://github.com/rajeshshirke8791/website.git'
+                        }
+                }
+
 		stage('Build') {
 
 			steps {
