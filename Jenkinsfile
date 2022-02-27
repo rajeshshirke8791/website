@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t /home/ubuntu/jenkins/workspace/job2/img2:latest .'
+				sh 'docker build /home/ubuntu/jenkins/workspace/job2/. it img2'
 			}
 		}
 
