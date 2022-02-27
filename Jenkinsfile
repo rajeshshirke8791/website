@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'sudo docker build /home/ubuntu/jenkins/workspace/job2/. -t img2'
+				sh 'sudo docker build -t /home/ubuntu/jenkins/workspace/job2/img3:latest .'
 			}
 		}
 
