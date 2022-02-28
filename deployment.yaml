@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+     app: appdply
+     type: front-end
+spec:
+  template:
+     metadata:
+       name: app-pod
+       labels: 
+         app: htmlapp
+         type: front-end
+     spec:
+         containers:
+           - name: app-erp
+             image: "rajeshshirke/img2:latest"
+  replicas: 2
+  selector:
+    matchLabels:
+      type: front-end
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  selector:
+    app: appdply
+  type: LoadBalancer  
+  ports:
+    - protocol: TCP
+      targetPort: 3000
+      port: 80
+      nodePort: 30000
