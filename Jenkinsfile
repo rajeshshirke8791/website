@@ -8,7 +8,7 @@ pipeline{
 
 	stages {
 
-		stage('Build') {
+		/*stage('Build') {
 
 			steps {
 				sh 'docker build -t rajeshshirke/img2:latest .'
@@ -28,7 +28,7 @@ pipeline{
 			steps {
 				sh 'docker push rajeshshirke/img2:latest'
 			}
-		}
+		}*/
 
 
 		stage('Deploy to K8s')
