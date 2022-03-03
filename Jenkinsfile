@@ -36,11 +36,11 @@ pipeline{
 			steps{
 				sshagent(['rajesh-k8'])
 				{
-					sh 'scp -r -o StrictHostKeyChecking=no deployment.yaml ubuntu@172.31.85.244:/home/ubuntu/website'
+					sh 'scp -r -o StrictHostKeyChecking=no deployment.yaml ubuntu@3.86.197.38:/home/ubuntu/website'
 					
 					script{
 						try{
-							sh 'ssh ubuntu@172.31.85.244 kubectl apply -f /home/ubuntu/website/deployment.yaml --kubeconfig=/home/.kube/config/kube.yaml'
+							sh 'ssh ubuntu@3.86.197.38 kubectl apply -f /home/ubuntu/website/deployment.yaml --kubeconfig=/home/.kube/config/kube.yaml'
 
 							}catch(error)
 							{
