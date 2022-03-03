@@ -34,7 +34,7 @@ pipeline{
 		stage('Deploy to K8s')
 		{
 			steps{
-				sshagent(['rajesh-k8'])
+				sshagent(['rajesh-kubernetes'])
 				{
 					sh 'scp -r -o StrictHostKeyChecking=no deployment.yaml ubuntu@3.86.197.38:/home/ubuntu/jenkins/workspace/job5'
 					
