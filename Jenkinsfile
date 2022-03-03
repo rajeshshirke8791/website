@@ -11,14 +11,14 @@ pipeline{
 		/*stage('Build') {
 
 			steps {
-				sh 'docker build -t rajeshshirke/img2:latest .'
+				sh 'sudo docker build -t rajeshshirke/img2:latest .'
 			}
 		}
 
 		stage('Login') {
 
 			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
 
@@ -26,7 +26,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push rajeshshirke/img2:latest'
+				sh 'sudo docker push rajeshshirke/img2:latest'
 			}
 		}*/
 
