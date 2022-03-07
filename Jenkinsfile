@@ -33,29 +33,17 @@ pipeline{
 
 		stage('Deploy to K8s')
 		{
-			steps{
-				sshagent(['rajesh-kubernetes'])
-				{
-					sh 'scp -r -o StrictHostKeyChecking=no deployment.yaml ubuntu@3.86.197.38:/home/ubuntu/jenkins/workspace/job5'
-					
-					script{
-						try{
-							sh 'ssh ubuntu@3.86.197.38 kubectl apply -f /home/ubuntu/website/deployment.yaml --kubeconfig=/home/.kube/config/kube.yaml'
-
-							}catch(error)
-							{
-
-							}
-					}
-				}
+			steps {
+				 #sh 'ssh ubuntu@3.86.197.38 kubectl apply -f /home/ubuntu/website/deployment.yaml --kubeconfig=/home/.kube/config/kube.yaml'
+				 sh 'kubectl apply -f /home/ubuntu/jenkins/workspace/job5/deployment.yaml'
 			}
 		}
 	}
 
-	/*post {
+	post {
 		always {
 			sh 'docker logout'
 		}
-	}*/
+	}
 
 }
