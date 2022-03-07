@@ -37,10 +37,10 @@ pipeline{
 				sshagent(credentials:['rajesh-k8jenkins'])
                                 {
                                         sh 'scp -r -o StrictHostKeyChecking=no deployment.yaml ubuntu@54.164.124.87:/home/ubuntu/jenkins/workspace/job5'
-
                                         script{
                                                 try{
                                                         sh 'ssh ubuntu@54.164.124.87 kubectl apply -f /home/ubuntu/jenkins/workspace/job5/deployment.yaml'
+							sh 'ssh ubuntu@54.164.124.87 kubectl apply -f /home/ubuntu/jenkins/workspace/job5/deployment.yaml --kubeconfig=/path/kube.yaml'
 
                                                         }catch(error)
                                                         {
