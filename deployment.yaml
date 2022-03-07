@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: app-deployment
   labels:
-     app: appdply
+     app: app-deployment
      type: front-end
 spec:
   template:
      metadata:
-       name: app-pod
+       name: app-deployment
        labels: 
-         app: htmlapp
+         app: app-deployment
          type: front-end
      spec:
          containers:
-           - name: app-erp
+           - name: app-deployment
              image: "rajeshshirke/img2:latest"
   replicas: 2
   selector:
@@ -28,7 +28,7 @@ metadata:
   name: app-service
 spec:
   selector:
-    app: appdply
+    app: app-deployment
   type: LoadBalancer  
   ports:
     - protocol: TCP
