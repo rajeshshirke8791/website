@@ -34,7 +34,7 @@ pipeline{
 		stage('Deploy to K8s')
 		{
 			steps {
-				 #sh 'ssh ubuntu@3.86.197.38 kubectl apply -f /home/ubuntu/website/deployment.yaml --kubeconfig=/home/.kube/config/kube.yaml'
+				 /*sh 'ssh ubuntu@3.86.197.38 kubectl apply -f /home/ubuntu/website/deployment.yaml --kubeconfig=/home/.kube/config/kube.yaml'*/
 				 sh 'kubectl apply -f /home/ubuntu/jenkins/workspace/job5/deployment.yaml'
 			}
 		}
