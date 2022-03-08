@@ -36,7 +36,8 @@ pipeline{
 			steps {
                                         script{
                                                 try{
-                                                        sh 'kubectl apply -f /home/ubuntu/jenkins/workspace/job5/deployment.yaml'
+                                                        /*sh 'kubectl apply -f /home/ubuntu/jenkins/workspace/job5/deployment.yaml'*/
+							kubernetesDeploy(Configs: "deployment.yaml" kubeconfigId: "kubernetes")
                                                         }catch(error)
                                                         {
 
