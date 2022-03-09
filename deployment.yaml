@@ -18,19 +18,4 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app-deployment 
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: app-service
-spec:
-  selector:
-    app: app-deployment
-  type: LoadBalancer  
-  ports:
-  - protocol: TCP
-    targetPort: 3000
-    port: 5000
-    nodePort: 31110
+      app: app-deployment
